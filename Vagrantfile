@@ -24,9 +24,11 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # 【Virtual Machine】
-  config.vm.provision :shell, privileged: false, path: "bootstrap/vm_docker.sh"
+  # # 【Virtual Machine】
+  # config.vm.provision :shell, privileged: false, path: "bootstrap/vm_docker.sh"
+  # config.vm.provision :shell, privileged: false, path: "bootstrap/db_postgres.sh"
 
-  # 【Upload File】
-  config.vm.provision "file", source: "./docker", destination: "$HOME/docker"
+  # # 【Upload File】
+  # config.vm.provision "file", source: "./docker", destination: "$HOME/docker"  
+  config.vm.provision "file", source: "./bootstrap", destination: "$HOME/bootstrap"
 end
