@@ -35,6 +35,14 @@ echo -e $'\e[1;31m ================================= \e[m'
 echo -e $'\e[1;31m ホストOSから仮想マシンのDBへpgAdminで接続               \e[m'
 echo -e $'\e[1;31m ================================= \e[m'
 # vi /var/lib/pgsql/13/data/postgresql.conf
+# listen_addresses = '*'     # what IP address(es) to listen on;
+#                            # comma-separated list of addresses;
+#                            # defaults to 'localhost'; use '*' for all
+#                            # (change requires restart)
+# port = 5432                # (change requires restart)
+
 # vi /var/lib/pgsql/13/data/pg_hba.conf
+# IPv4 local connections:
+# host    all             all             all                     trust
 
 set +x

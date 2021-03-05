@@ -3,6 +3,8 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "centos/7"
 
+  config.vm.network "forwarded_port", guest: 5432, host: 5432
+
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.33.10"
@@ -25,10 +27,9 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   # # 【Virtual Machine】
-  # config.vm.provision :shell, privileged: false, path: "bootstrap/vm_docker.sh"
+  config.vm.provision :shell, privileged: false, path: "bootstrap/vm_docker.sh"
   # config.vm.provision :shell, privileged: false, path: "bootstrap/db_postgres.sh"
 
   # # 【Upload File】
-  # config.vm.provision "file", source: "./docker", destination: "$HOME/docker"  
-  config.vm.provision "file", source: "./bootstrap", destination: "$HOME/bootstrap"
+  config.vm.provision "file", source: "./docker", destination: "$HOME/docker"  
 end
